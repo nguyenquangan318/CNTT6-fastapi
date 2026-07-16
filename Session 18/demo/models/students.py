@@ -9,7 +9,7 @@ class StudentModel(Base):
     id = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(String(20))
     age = Column(Integer)
-    classroom_id = Column(Integer, ForeignKey("classes.id"))
+    classroom_id = Column(Integer, ForeignKey("classes.id", ondelete="set null"))
     
     classroom = relationship(
         "ClassroomModel",
